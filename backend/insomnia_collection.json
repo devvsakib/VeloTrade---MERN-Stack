@@ -1,0 +1,996 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2025-12-25T05:40:28.000Z",
+  "__export_source": "insomnia.desktop.app:v2023.5.8",
+  "resources": [
+    {
+      "_id": "req_auth_login",
+      "parentId": "fld_authentication",
+      "modified": 1703500000000,
+      "created": 1703500000000,
+      "url": "{{ _.base_url }}/api/auth/login",
+      "name": "Login",
+      "description": "Login to get authentication token",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"email\": \"john@demo.com\",\n  \"password\": \"123456\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1703500000000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_auth_register",
+      "parentId": "fld_authentication",
+      "modified": 1703500000000,
+      "created": 1703500000000,
+      "url": "{{ _.base_url }}/api/auth/register",
+      "name": "Register",
+      "description": "Register a new user account",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"email\": \"newuser@demo.com\",\n  \"password\": \"123456\",\n  \"name\": \"New User\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1703500001000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_products_all",
+      "parentId": "fld_products",
+      "modified": 1703500000000,
+      "created": 1703500000000,
+      "url": "{{ _.base_url }}/api/products",
+      "name": "Get All Products",
+      "description": "Get list of all products (no auth required)",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1703500000000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_products_single",
+      "parentId": "fld_products",
+      "modified": 1703500000000,
+      "created": 1703500000000,
+      "url": "{{ _.base_url }}/api/products/676b5e8f8a9c123456789abc",
+      "name": "Get Single Product",
+      "description": "Get details of a specific product",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1703500001000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_products_categories",
+      "parentId": "fld_products",
+      "modified": 1703500000000,
+      "created": 1703500000000,
+      "url": "{{ _.base_url }}/api/products/categories",
+      "name": "Get Categories",
+      "description": "Get all product categories",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1703500002000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_categories_all",
+      "parentId": "fld_categories",
+      "modified": 1703680000000,
+      "created": 1703680000000,
+      "url": "{{ _.base_url }}/api/categories",
+      "name": "Get Hierarchical Categories",
+      "method": "GET",
+      "headers": [],
+      "_type": "request"
+    },
+    {
+      "_id": "req_categories_create",
+      "parentId": "fld_categories",
+      "modified": 1703680000000,
+      "created": 1703680000000,
+      "url": "{{ _.base_url }}/api/categories",
+      "name": "Create Category (Admin)",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"name\": \"Smartphones\",\n  \"parent\": \"676b5e8f8a9c123456789abc\"\n}"
+      },
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" },
+        { "name": "Authorization", "value": "Bearer {{ _.token }}" }
+      ],
+      "_type": "request"
+    },
+    {
+      "_id": "req_vendors_all",
+      "parentId": "fld_vendors",
+      "modified": 1703500000000,
+      "created": 1703500000000,
+      "url": "{{ _.base_url }}/api/vendor/all",
+      "name": "Get All Vendors (Admin)",
+      "description": "Get all vendors - Admin only",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer {{ _.token }}"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1703500000000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_vendors_me",
+      "parentId": "fld_vendors",
+      "modified": 1703500000000,
+      "created": 1703500000000,
+      "url": "{{ _.base_url }}/api/vendor/me",
+      "name": "Get Vendor Profile",
+      "description": "Get current vendor profile - Vendor only",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer {{ _.token }}"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1703500001000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_vendors_dashboard",
+      "parentId": "fld_vendors",
+      "modified": 1703500000000,
+      "created": 1703500000000,
+      "url": "{{ _.base_url }}/api/vendor/dashboard",
+      "name": "Vendor Dashboard",
+      "description": "Get vendor dashboard data",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer {{ _.token }}"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1703500002000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_reviews_get",
+      "parentId": "fld_reviews",
+      "modified": 1703500000000,
+      "created": 1703500000000,
+      "url": "{{ _.base_url }}/api/reviews/676b5e8f8a9c123456789abc",
+      "name": "Get Product Reviews",
+      "description": "Get all reviews for a product",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1703500000000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_reviews_add",
+      "parentId": "fld_reviews",
+      "modified": 1703500000000,
+      "created": 1703500000000,
+      "url": "{{ _.base_url }}/api/reviews/676b5e8f8a9c123456789abc",
+      "name": "Add/Update Review",
+      "description": "Add or update a product review",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"rating\": 5,\n  \"comment\": \"Great product!\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "name": "Authorization",
+          "value": "Bearer {{ _.token }}"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1703500001000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_coupons_get",
+      "parentId": "fld_coupons",
+      "modified": 1703500000000,
+      "created": 1703500000000,
+      "url": "{{ _.base_url }}/api/coupons",
+      "name": "Get Active Coupons",
+      "description": "Get all active coupons",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1703500000000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_coupons_apply",
+      "parentId": "fld_coupons",
+      "modified": 1703500000000,
+      "created": 1703500000000,
+      "url": "{{ _.base_url }}/api/coupons/apply/WELCOME10",
+      "name": "Apply Coupon",
+      "description": "Apply a coupon code",
+      "method": "POST",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer {{ _.token }}"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1703500001000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_coupons_vendor_create",
+      "parentId": "fld_coupons",
+      "modified": 1703680000000,
+      "created": 1703680000000,
+      "url": "{{ _.base_url }}/api/coupons/vendor",
+      "name": "Create Vendor Coupon",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"code\": \"VEND20\",\n  \"discount\": 20,\n  \"scope\": \"VENDOR\",\n  \"validFrom\": \"2024-01-01\",\n  \"validTill\": \"2024-12-31\"\n}"
+      },
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" },
+        { "name": "Authorization", "value": "Bearer {{ _.token }}" }
+      ],
+      "_type": "request"
+    },
+    {
+      "_id": "req_wishlist_get",
+      "parentId": "fld_wishlist",
+      "modified": 1703500000000,
+      "created": 1703500000000,
+      "url": "{{ _.base_url }}/api/wishlist",
+      "name": "Get Wishlist",
+      "description": "Get user's wishlist",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer {{ _.token }}"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1703500000000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_wishlist_add",
+      "parentId": "fld_wishlist",
+      "modified": 1703500000000,
+      "created": 1703500000000,
+      "url": "{{ _.base_url }}/api/wishlist/add",
+      "name": "Add to Wishlist",
+      "description": "Add a product to wishlist",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"productId\": \"676b5e8f8a9c123456789abc\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "name": "Authorization",
+          "value": "Bearer {{ _.token }}"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1703500001000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_wishlist_remove",
+      "parentId": "fld_wishlist",
+      "modified": 1703500000000,
+      "created": 1703500000000,
+      "url": "{{ _.base_url }}/api/wishlist/remove",
+      "name": "Remove from Wishlist",
+      "description": "Remove a product from wishlist",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"productId\": \"676b5e8f8a9c123456789abc\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "name": "Authorization",
+          "value": "Bearer {{ _.token }}"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1703500002000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_orders_my",
+      "parentId": "fld_orders",
+      "modified": 1703500000000,
+      "created": 1703500000000,
+      "url": "{{ _.base_url }}/api/orders/my",
+      "name": "Get My Orders",
+      "description": "Get current user's orders",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer {{ _.token }}"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1703500000000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_orders_single",
+      "parentId": "fld_orders",
+      "modified": 1703500000000,
+      "created": 1703500000000,
+      "url": "{{ _.base_url }}/api/orders/676b5e8f8a9c123456789abc",
+      "name": "Get Single Order",
+      "description": "Get details of a specific order",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Authorization",
+          "value": "Bearer {{ _.token }}"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1703500001000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_orders_preview",
+      "parentId": "fld_orders",
+      "modified": 1703680000000,
+      "created": 1703680000000,
+      "url": "{{ _.base_url }}/api/orders/preview",
+      "name": "Preview Order",
+      "description": "Get checkout summary before placing order",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"items\": [\n    {\n      \"productId\": \"676b5e8f8a9c123456789abc\",\n      \"quantity\": 1\n    }\n  ],\n  \"couponCode\": \"SAVE10\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "name": "Authorization",
+          "value": "Bearer {{ _.token }}"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1703500002000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_orders_checkout",
+      "parentId": "fld_orders",
+      "modified": 1703680000000,
+      "created": 1703680000000,
+      "url": "{{ _.base_url }}/api/orders",
+      "name": "Create Order (Checkout)",
+      "description": "Place a new order",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"items\": [\n    {\n      \"productId\": \"676b5e8f8a9c123456789abc\",\n      \"quantity\": 1\n    }\n  ],\n  \"paymentMethod\": \"SSL\",\n  \"shippingAddress\": {\n    \"name\": \"John Doe\",\n    \"phone\": \"01712345678\",\n    \"address\": \"123 Main St\",\n    \"city\": \"Dhaka\",\n    \"postalCode\": \"1000\"\n  },\n  \"couponCode\": \"SAVE10\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        },
+        {
+          "name": "Authorization",
+          "value": "Bearer {{ _.token }}"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1703500003000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_orders_dispute",
+      "parentId": "fld_orders",
+      "modified": 1703680000000,
+      "created": 1703680000000,
+      "url": "{{ _.base_url }}/api/admin/dispute",
+      "name": "Create Dispute (Customer)",
+      "description": "Initiate a dispute for an order",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"orderId\": \"676b5e8f8a9c123456789abc\",\n  \"reason\": \"Items not as described\"\n}"
+      },
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" },
+        { "name": "Authorization", "value": "Bearer {{ _.token }}" }
+      ],
+      "_type": "request"
+    },
+    {
+      "_id": "req_orders_refund_request",
+      "parentId": "fld_orders",
+      "modified": 1703680000000,
+      "created": 1703680000000,
+      "url": "{{ _.base_url }}/api/orders/refund",
+      "name": "Request Refund (Customer)",
+      "description": "Request a refund for a paid order",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"orderId\": \"676b5e8f8a9c123456789abc\",\n  \"reason\": \"Mistakenly ordered\",\n  \"amount\": 1000\n}"
+      },
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" },
+        { "name": "Authorization", "value": "Bearer {{ _.token }}" }
+      ],
+      "_type": "request"
+    },
+    {
+      "_id": "req_orders_refunds_my",
+      "parentId": "fld_orders",
+      "modified": 1703680000000,
+      "created": 1703680000000,
+      "url": "{{ _.base_url }}/api/orders/my/refunds",
+      "name": "Get My Refunds",
+      "method": "GET",
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{ _.token }}" }
+      ],
+      "_type": "request"
+    },
+    {
+      "_id": "req_admin_get_users",
+      "parentId": "fld_admin",
+      "modified": 1703680000000,
+      "created": 1703680000000,
+      "url": "{{ _.base_url }}/api/admin/users",
+      "name": "Get All Users",
+      "method": "GET",
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{ _.token }}" }
+      ],
+      "_type": "request"
+    },
+    {
+      "_id": "req_admin_get_user_single",
+      "parentId": "fld_admin",
+      "modified": 1703680000000,
+      "created": 1703680000000,
+      "url": "{{ _.base_url }}/api/admin/user/676b5e8f8a9c123456789abc",
+      "name": "Get Single User",
+      "method": "GET",
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{ _.token }}" }
+      ],
+      "_type": "request"
+    },
+    {
+      "_id": "req_admin_update_role",
+      "parentId": "fld_admin",
+      "modified": 1703680000000,
+      "created": 1703680000000,
+      "url": "{{ _.base_url }}/api/admin/user/role/676b5e8f8a9c123456789abc",
+      "name": "Update User Role",
+      "method": "PATCH",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"role\": \"ADMIN\"\n}"
+      },
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" },
+        { "name": "Authorization", "value": "Bearer {{ _.token }}" }
+      ],
+      "_type": "request"
+    },
+    {
+      "_id": "req_admin_toggle_user",
+      "parentId": "fld_admin",
+      "modified": 1703680000000,
+      "created": 1703680000000,
+      "url": "{{ _.base_url }}/api/admin/user/toggle/676b5e8f8a9c123456789abc",
+      "name": "Toggle User Active",
+      "method": "PATCH",
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{ _.token }}" }
+      ],
+      "_type": "request"
+    },
+    {
+      "_id": "req_admin_delete_user",
+      "parentId": "fld_admin",
+      "modified": 1703680000000,
+      "created": 1703680000000,
+      "url": "{{ _.base_url }}/api/admin/user/676b5e8f8a9c123456789abc",
+      "name": "Delete User",
+      "method": "DELETE",
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{ _.token }}" }
+      ],
+      "_type": "request"
+    },
+    {
+      "_id": "req_admin_get_vendors",
+      "parentId": "fld_admin",
+      "modified": 1703680000000,
+      "created": 1703680000000,
+      "url": "{{ _.base_url }}/api/admin/vendors",
+      "name": "Get All Vendors",
+      "method": "GET",
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{ _.token }}" }
+      ],
+      "_type": "request"
+    },
+    {
+      "_id": "req_admin_get_vendor_single",
+      "parentId": "fld_admin",
+      "modified": 1703680000000,
+      "created": 1703680000000,
+      "url": "{{ _.base_url }}/api/admin/vendor/676b5e8f8a9c123456789abc",
+      "name": "Get Single Vendor",
+      "method": "GET",
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{ _.token }}" }
+      ],
+      "_type": "request"
+    },
+    {
+      "_id": "req_admin_vendor_status",
+      "parentId": "fld_admin",
+      "modified": 1703680000000,
+      "created": 1703680000000,
+      "url": "{{ _.base_url }}/api/admin/vendor/status/676b5e8f8a9c123456789abc",
+      "name": "Update Vendor Status",
+      "method": "PATCH",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"status\": \"APPROVED\"\n}"
+      },
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" },
+        { "name": "Authorization", "value": "Bearer {{ _.token }}" }
+      ],
+      "_type": "request"
+    },
+    {
+      "_id": "req_admin_vendor_commission",
+      "parentId": "fld_admin",
+      "modified": 1703680000000,
+      "created": 1703680000000,
+      "url": "{{ _.base_url }}/api/admin/vendor/commission/676b5e8f8a9c123456789abc",
+      "name": "Update Vendor Commission",
+      "method": "PATCH",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"commissionRate\": 15\n}"
+      },
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" },
+        { "name": "Authorization", "value": "Bearer {{ _.token }}" }
+      ],
+      "_type": "request"
+    },
+    {
+      "_id": "req_admin_order_status",
+      "parentId": "fld_admin",
+      "modified": 1703680000000,
+      "created": 1703680000000,
+      "url": "{{ _.base_url }}/api/admin/order/676b5e8f8a9c123456789abc",
+      "name": "Update Order Status",
+      "method": "PATCH",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"orderStatus\": \"SHIPPED\",\n  \"paymentStatus\": \"PAID\"\n}"
+      },
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" },
+        { "name": "Authorization", "value": "Bearer {{ _.token }}" }
+      ],
+      "_type": "request"
+    },
+    {
+      "_id": "req_admin_get_disputes",
+      "parentId": "fld_admin",
+      "modified": 1703680000000,
+      "created": 1703680000000,
+      "url": "{{ _.base_url }}/api/admin/disputes",
+      "name": "Get All Disputes",
+      "method": "GET",
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{ _.token }}" }
+      ],
+      "_type": "request"
+    },
+    {
+      "_id": "req_admin_get_dispute_single",
+      "parentId": "fld_admin",
+      "modified": 1703680000000,
+      "created": 1703680000000,
+      "url": "{{ _.base_url }}/api/admin/dispute/676b5e8f8a9c123456789abc",
+      "name": "Get Single Dispute",
+      "method": "GET",
+      "headers": [
+        { "name": "Authorization", "value": "Bearer {{ _.token }}" }
+      ],
+      "_type": "request"
+    },
+    {
+      "_id": "req_admin_resolve_dispute",
+      "parentId": "fld_admin",
+      "modified": 1703680000000,
+      "created": 1703680000000,
+      "url": "{{ _.base_url }}/api/admin/dispute/676b5e8f8a9c123456789abc",
+      "name": "Resolve Dispute",
+      "method": "PATCH",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"status\": \"RESOLVED\",\n  \"refundAmount\": 500\n}"
+      },
+      "headers": [
+        { "name": "Content-Type", "value": "application/json" },
+        { "name": "Authorization", "value": "Bearer {{ _.token }}" }
+      ],
+      "_type": "request"
+    },
+    {
+      "_id": "fld_authentication",
+      "parentId": "wrk_main",
+      "modified": 1703500000000,
+      "created": 1703500000000,
+      "name": "Authentication",
+      "description": "Authentication endpoints",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1703500000000,
+      "_type": "request_group"
+    },
+    {
+      "_id": "fld_products",
+      "parentId": "wrk_main",
+      "modified": 1703500000000,
+      "created": 1703500000000,
+      "name": "Products",
+      "description": "Product endpoints",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1703500001000,
+      "_type": "request_group"
+    },
+    {
+      "_id": "fld_vendors",
+      "parentId": "wrk_main",
+      "modified": 1703500000000,
+      "created": 1703500000000,
+      "name": "Vendors",
+      "description": "Vendor endpoints",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1703500002000,
+      "_type": "request_group"
+    },
+    {
+      "_id": "fld_reviews",
+      "parentId": "wrk_main",
+      "modified": 1703500000000,
+      "created": 1703500000000,
+      "name": "Reviews",
+      "description": "Review endpoints",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1703500003000,
+      "_type": "request_group"
+    },
+    {
+      "_id": "fld_coupons",
+      "parentId": "wrk_main",
+      "modified": 1703500000000,
+      "created": 1703500000000,
+      "name": "Coupons",
+      "description": "Coupon endpoints",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1703500004000,
+      "_type": "request_group"
+    },
+    {
+      "_id": "fld_wishlist",
+      "parentId": "wrk_main",
+      "modified": 1703500000000,
+      "created": 1703500000000,
+      "name": "Wishlist",
+      "description": "Wishlist endpoints",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1703500005000,
+      "_type": "request_group"
+    },
+    {
+      "_id": "fld_orders",
+      "parentId": "wrk_main",
+      "modified": 1703500000000,
+      "created": 1703500000000,
+      "name": "Orders",
+      "description": "Order endpoints",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1703500006000,
+      "_type": "request_group"
+    },
+    {
+      "_id": "fld_categories",
+      "parentId": "wrk_main",
+      "modified": 1703680000000,
+      "created": 1703680000000,
+      "name": "Categories",
+      "description": "Category management",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1703500001500,
+      "_type": "request_group"
+    },
+    {
+      "_id": "fld_admin",
+      "parentId": "wrk_main",
+      "modified": 1703680000000,
+      "created": 1703680000000,
+      "name": "Admin Dashboard",
+      "description": "Admin only management endpoints",
+      "environment": {},
+      "environmentPropertyOrder": null,
+      "metaSortKey": -1703500007000,
+      "_type": "request_group"
+    },
+    {
+      "_id": "wrk_main",
+      "parentId": null,
+      "modified": 1703500000000,
+      "created": 1703500000000,
+      "name": "E-Commerce API",
+      "description": "Complete API collection for E-Commerce backend",
+      "scope": "collection",
+      "_type": "workspace"
+    },
+    {
+      "_id": "env_base",
+      "parentId": "wrk_main",
+      "modified": 1703500000000,
+      "created": 1703500000000,
+      "name": "Base Environment",
+      "data": {
+        "base_url": "http://localhost:5000",
+        "token": ""
+      },
+      "dataPropertyOrder": {
+        "&": [
+          "base_url",
+          "token"
+        ]
+      },
+      "color": null,
+      "isPrivate": false,
+      "metaSortKey": 1703500000000,
+      "_type": "environment"
+    },
+    {
+      "_id": "jar_cookies",
+      "parentId": "wrk_main",
+      "modified": 1703500000000,
+      "created": 1703500000000,
+      "name": "Default Jar",
+      "cookies": [],
+      "_type": "cookie_jar"
+    }
+  ]
+}

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Backend Socket Test</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        #log { border: 1px solid #ccc; padding: 10px; height: 300px; overflow-y: scroll; background: #f9f9f9; }
+        .success { color: green; }
+        .error { color: red; }
+    </style>
+    <!-- Load Socket.IO client library from CDN -->
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+</head>
+<body>
+    <h1>🔌 Backend Socket Tester</h1>
+    <p>Status: <span id="status">Disconnected</span></p>
+    
+    <button onclick="sendTest()">Send Test Message</button>
+    
+    <h3>Log:</h3>
+    <div id="log"></div>
+
+    <script>
+        const logDiv = document.getElementById('log');
+        const statusSpan = document.getElementById('status');
+        
+        // Connect to local backend
+        const socket = io("http://localhost:5000");
+
+        function log(msg, type = '') {
+            const p = document.createElement('p');
+            p.textContent = `[${new Date().toLocaleTimeString()}] ${msg}`;
+            if (type) p.className = type;
+            logDiv.prepend(p);
+        }
+
+        socket.on("connect", () => {
+            statusSpan.textContent = "Connected ✅";
+            statusSpan.className = "success";
+            log("Connected to server: " + socket.id, "success");
+        });
+
+        socket.on("connect_error", (err) => {
+            statusSpan.textContent = "Connection Failed ❌";
+            statusSpan.className = "error";
+            log("Connection error: " + err.message, "error");
+        });
+
+        socket.on("disconnect", () => {
+            statusSpan.textContent = "Disconnected ⚠️";
+            statusSpan.className = "error";
+            log("Disconnected from server", "error");
+        });
+
+        socket.on("test_response", (data) => {
+            log("Received response: " + JSON.stringify(data), "success");
+        });
+
+        function sendTest() {
+            if (socket.connected) {
+                const msg = "Hello from client! test";
+                socket.emit("test_message", msg);
+                log("Sent: " + msg);
+            } else {
+                log("Cannot send: Disconnected", "error");
+            }
+        }
+    </script>
+</body>
+</html>
